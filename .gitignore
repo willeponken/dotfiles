@@ -1,4 +1,5 @@
 surf/.surf/cookies.txt
 surf/.surf/cache
-neovim/.local/share/nvim/shada
 neovim/.config/nvim/plugins/
+neovim/.local/share/nvim/shada
+neovim/.local/share/recently-used.xbel
