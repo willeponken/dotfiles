@@ -25,13 +25,28 @@ function bottom() {
 	window.scrollBy(0, document.body.scrollHeight);
 }
 
+function zoom(factor) {
+	// Make sure zoom is defined. Can also be used to reset the view w/o the
+	// factor defined (and not calling the callback function).
+	document.body.style.zoom = "100%";
+	return function() {
+		// Extract the last zoom and add with factor parameter.
+		document.body.style.zoom = (parseInt(
+			document.body.style.zoom.split("%")[0]) + factor) + "%";
+	}
+}
+
 var bindings = {
 	'h' : left,
 	'l' : right,
 	'k' : up,
 	'j' : down,
 	'g' : home,
-	'G' : bottom
+	'G' : bottom,
+	'0' : zoom,
+	'o' : zoom,
+	'+' : zoom(10),
+	'-' : zoom(-10)
 }
 
 function isEditable(element) {
@@ -56,8 +71,9 @@ function keypress(evt) {
 
 	// If we're on a editable element, we probably don't want to catch
 	// keypress, we just want to write the typed character.
-	if (isEditable(target))
+	if (isEditable(target)) {
 		return;
+	}
 
 	var key = String.fromCharCode(evt.charCode);
 	if (evt.ctrlKey) {
@@ -65,8 +81,9 @@ function keypress(evt) {
 	}
 
 	var fun = bindings[key];
-	if (fun)
+	if (fun) {
 		fun();
+	}
 
 }
 
