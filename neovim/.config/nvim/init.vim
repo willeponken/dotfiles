@@ -54,7 +54,23 @@ let g:UltiSnipsExpandTrigger="<C-a>" " <C-a> to accept snippet
 
 " Airline/powerline
 Plug 'vim-airline/vim-airline'
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0 " Disable powerline fonts
+let g:airline_symbols = {
+\	'paste': 'PASTE',
+\ 	'spell': 'SPELL',
+\ 	'readonly': 'RO',
+\ 	'whitespace': '!',
+\ 	'linenr': 'ln',
+\ 	'maxlinenr': '',
+\ 	'branch': '',
+\ 	'notexists': '?',
+\ 	'modified': '+',
+\ 	'space': ' ',
+\ 	'crypt': 'cr'}
+
+" Airline themes
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='solarized'
 
 " Solarized colors
 Plug 'altercation/vim-colors-solarized'
@@ -72,6 +88,12 @@ let g:strip_whitelines_at_eof = 1
 Plug 'w0rp/ale'
 let g:ale_completion_enabled = 1
 let g:ale_linters = {'python': ['flake8']}
+let g:ale_fixers = {
+\	'*': ['remove_trailing_lines', 'trim_whitespace'],
+\	'python': ['isort']
+\}
+let g:ale_fix_on_save = 1
+let g:airline#extensions#ale#enabled = 1
 
 " Jump to previous error
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -135,3 +157,8 @@ for tool in s:opam_packages
   endif
 endfor
 " ## end of OPAM user-setup addition for vim / base ## keep this line
+
+" Load all plugins before loading tags
+packloadall
+" Generate helptags (silently)
+silent! helptags ALL
