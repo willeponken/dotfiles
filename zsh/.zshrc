@@ -78,5 +78,8 @@ export FZF_DEFAULT_OPTS='
 # Enable auto completion.
 autoload -Uz compinit && compinit
 
+# PATH
+export PATH=$HOME/.local/usr/bin:$PATH
+
 # OPAM configuration
 . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
