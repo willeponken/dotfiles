@@ -73,7 +73,7 @@ export FZF_DEFAULT_OPTS='
 '
 
 # Enable fzf if it exists.
-[[ -n ~/.fzf.zsh ]] && source ~/.fzf.zsh
+[[ -n ~/.fzf.zsh ]] && source ~/.fzf.zsh 2> /dev/null || true
 
 # Enable auto completion.
 autoload -Uz compinit && compinit
