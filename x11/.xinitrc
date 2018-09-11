@@ -33,5 +33,6 @@ function lockscreen() {
 
 slstatus &
 lockscreen &
+unclutter -jitter 10 -idle 1 -root &
 
 dwm
