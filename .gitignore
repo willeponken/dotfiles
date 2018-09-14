@@ -3,6 +3,7 @@ surf/.surf/cache
 neovim/.config/nvim/plugins/
 neovim/.local/share/nvim/shada
 neovim/.local/share/recently-used.xbel
+neovim/.local/share/nvim/swap
 weechat/.weechat/weechat.log
 weechat/.weechat/logs
 weechat/.weechat/script/plugins.xml.gz
