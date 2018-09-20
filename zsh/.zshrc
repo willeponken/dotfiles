@@ -2,11 +2,8 @@ HISTFILE=~/.zsh-histfile
 HISTSIZE=5000
 SAVEHIST=5000
 setopt append_history share_history histignorealldups autocd extendedglob
-setopt nomatch notify correctall
+setopt nomatch notify
 unsetopt beep
-
-# Third-party completions.
-fpath=("$HOME/.zsh/completion" $fpath)
 
 # Vi-mode
 bindkey -v
