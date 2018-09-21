@@ -48,7 +48,12 @@ zstyle ':vcs_info:git*' formats "%r/%S (%F{blue}%b%f)"
 zstyle ':vcs_info:git*' actionformats "%r/%S (%F{blue}%b%f|%F{yellow}%a%f) %m%u%c"
 
 # Some aliases.
-alias ls="ls --color=auto"
+alias ls="exa"
+alias ll="exa -l"
+alias la="exa -la"
+alias l="exa"
+alias c="cd"
+alias s="sudo"
 
 precmd() {
 	vcs_info
