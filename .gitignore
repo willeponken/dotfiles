@@ -1,6 +1,8 @@
 surf/.surf/cookies.txt
 surf/.surf/cache
+surf/.surf/bookmarks
 neovim/.config/nvim/plugins/
+neovim/.local/share/gegl-0.2/
 neovim/.local/share/nvim/shada
 neovim/.local/share/recently-used.xbel
 neovim/.local/share/nvim/swap

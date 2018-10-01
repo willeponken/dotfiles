@@ -4,6 +4,10 @@
 wmname LG3d
 AWT_TOOLKIT=MToolkit; export AWT_TOOLKIT
 
+# Fix git GPG signing
+export GPG_TTY=$(tty)
+
+# Some keyboard layout modifications
 setxkbmap se # Swedish layout
 setxkbmap -option altwin:swap_lalt_lwin # Swap <LAlt> and <Super>
 setxkbmap -option "ctrl:nocaps" # Use <CapsL> as <Ctrl>
