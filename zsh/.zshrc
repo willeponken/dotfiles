@@ -54,6 +54,7 @@ alias la="exa -la"
 alias l="exa"
 alias c="cd"
 alias s="sudo"
+alias java-config="java-config -n"
 
 precmd() {
 	vcs_info
