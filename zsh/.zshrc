@@ -86,6 +86,3 @@ export PATH=$HOME/.local/usr/bin:$PATH
 
 # Fix git GPG signing
 export GPG_TTY=$(tty)
-
-# OPAM configuration
-. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
