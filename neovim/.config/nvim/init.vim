@@ -117,10 +117,6 @@ set mouse=a
 " Auto write before :next and :make
 set autowrite
 
-" Define _ and - as keywords, for easy jumping on snakecase lines etc.
-set iskeyword-=_
-set iskeyword-=-
-
 " Line numbers
 set number relativenumber
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
