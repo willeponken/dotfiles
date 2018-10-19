@@ -13,6 +13,12 @@ bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
+bindkey -M vicmd '?' history-incremental-search-backward
+bindkey -M vicmd '/' history-incremental-search-forward
+bindkey -M vicmd "k" history-beginning-search-backward
+bindkey -M vicmd "j" history-beginning-search-forward
 export KEYTIMEOUT=1
 
 # Display beam for insert mode and block for normal mode (vi-mode).
@@ -55,6 +61,7 @@ alias l="exa"
 alias c="cd"
 alias s="sudo"
 alias java-config="java-config -n"
+alias ..="cd .." ...="cd ../.." ....="cd ../../.."
 
 precmd() {
 	vcs_info
