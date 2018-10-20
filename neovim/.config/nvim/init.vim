@@ -131,6 +131,9 @@ colorscheme solarized
 set cursorline
 set colorcolumn=+1
 
+" Use clipboard for yanking
+set clipboard=unnamedplus
+
 " Load all plugins before loading tags
 packloadall
 " Generate helptags (silently)
