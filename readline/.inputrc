@@ -1,0 +1,23 @@
+set editing-mode vi
+set show-mode-in-prompt on
+
+$if term=linux
+	set vi-ins-mode-string \1\e[?0c\2
+	set vi-cmd-mode-string \1\e[?8c\2
+$else
+	set vi-ins-mode-string \1\e[6 q\2
+	set vi-cmd-mode-string \1\e[2 q\2
+$endif
+
+set show-all-if-unmodified on
+set show-all-if-ambiguous on
+
+$if profanity
+	"\C-p": prof_win_prev
+	"\C-n": prof_win_next
+	"\C-k": prof_win_pageup
+	"\C-j": prof_win_pagedown
+	"\C-h": prof_subwin_pageup
+	"\C-l": prof_subwin_pagedown
+	"\C-y": prof_win_clear
+$endif

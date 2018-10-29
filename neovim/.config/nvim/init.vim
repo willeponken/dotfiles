@@ -94,6 +94,7 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
+\	'java': ['google_java_format'],
 \	'python': ['isort'],
 \	'cpp': ['clang-format'],
 \	'c': ['clang-format']
