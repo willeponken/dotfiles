@@ -42,6 +42,10 @@ map <C-f> :FZF<CR>
 
 " Go tools
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+let g:go_version_warning = 0
+
+" Typescript
+Plug 'leafgarland/typescript-vim', {'for': ['typescript']}
 
 " Tagbar
 Plug 'majutsushi/tagbar'
@@ -87,19 +91,31 @@ let g:strip_whitelines_at_eof = 1
 " Autocompletion/linting
 Plug 'w0rp/ale'
 let g:ale_completion_enabled = 1
+let g:ale_linter_aliases = {
+\	'jsx': ['css', 'javascript'],
+\}
 let g:ale_linters = {
+\	'jsx': ['stylelint', 'eslint'],
+\	'javascript': ['eslint'],
+\	'typescript': ['eslint'],
 \	'python': ['flake8'],
 \	'cpp': ['gcc'],
-\	'c': ['gcc']
+\	'c': ['gcc'],
+\	'go': ['gofmt', 'govet'],
+\	'java': ['javalsp']
 \}
 let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
 \	'java': ['google_java_format'],
 \	'python': ['isort'],
 \	'cpp': ['clang-format'],
-\	'c': ['clang-format']
+\	'c': ['clang-format'],
+\	'go': ['goimports'],
+\	'typescript': ['prettier', 'eslint'],
+\	'javascript': ['prettier', 'eslint']
 \}
 let g:ale_fix_on_save = 1
+" let g:ale_java_javalsp_jar = '~/local/usr/bin/javalsp.jar'
 let g:airline#extensions#ale#enabled = 1
 
 " Jump to previous error
@@ -108,6 +124,10 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 call plug#end()
+
+" Use H and L to navigate between tabs
+nnoremap H gT
+nnoremap L gt
 
 " Enable 256 color mode for VIM (Neovim ignores this)
 set t_Co=256
@@ -125,6 +145,9 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE gui
 " Wordwrap
 set textwidth=80
 autocmd Filetype python setlocal textwidth=120
+autocmd Filetype javascript,json setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
 
 " Solarized
 set background=dark
