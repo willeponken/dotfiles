@@ -43,6 +43,7 @@ map <C-f> :FZF<CR>
 " Go tools
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 let g:go_version_warning = 0
+let g:go_fmt_command = "goimports"
 
 " Typescript
 Plug 'leafgarland/typescript-vim', {'for': ['typescript']}
