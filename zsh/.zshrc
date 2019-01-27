@@ -62,6 +62,15 @@ alias c="cd"
 alias s="sudo"
 alias java-config="java-config -n"
 alias ..="cd .." ...="cd ../.." ....="cd ../../.."
+alias gpl="git pull"
+alias gplo="gpl origin"
+alias gplu="gpl upstream"
+alias gph="git push"
+alias gpho="gph origin"
+alias gphu="gph upstream"
+alias gd="git diff"
+alias gdc="gd --cached"
+alias gm="git merge"
 
 precmd() {
 	vcs_info
