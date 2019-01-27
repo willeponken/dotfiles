@@ -126,9 +126,33 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 call plug#end()
 
-" Use H and L to navigate between tabs
-nnoremap H gT
-nnoremap L gt
+" Use Ä and Å to navigate between tabs
+nnoremap Ä gT
+nnoremap Å gt
+
+" HNEI arrows. Swap 'gn'/'ge' and 'n'/'e'.
+noremap n gj|noremap e gk|noremap i l|noremap gn j|noremap ge k
+
+" In(s)ert. The default s/S is synonymous with cl/cc and is not very useful.
+" - s/S is the new i/I ["inSert"].
+noremap s i|noremap S I
+
+" Repeat search.
+" - ö/Ö is the new n/N.
+noremap ö n|noremap Ö N
+
+" BOL/EOL/Join.
+" - l/L skip to the beginning and end of lines. Much more intuitive than ^/$.
+" - Ctrl-l joins lines, making l/L the veritable "Line" key.
+noremap l ^|noremap L $|noremap <C-l> J
+
+" _r_ = inneR text objects.
+" - r replaces i as the "inneR" modifier [e.g. "diw" becomes "drw"].
+onoremap r i
+
+" EOW.
+" - j/J is the new e/E ["Jump" to EOW].
+noremap j e|noremap J E
 
 " Enable 256 color mode for VIM (Neovim ignores this)
 set t_Co=256
@@ -138,6 +162,19 @@ set mouse=a
 
 " Auto write before :next and :make
 set autowrite
+
+" Persistent undo
+set undofile
+
+" Increase size of history
+set history=10000
+
+" Allow Ctrl-A and Ctrl-X to increment and decrement alphabetical characters.
+set nrformats+=alpha
+
+" Case insensitive search unless using uppercase.
+set ignorecase
+set smartcase
 
 " Line numbers
 set number relativenumber

@@ -6,10 +6,9 @@ _JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING
 AWT_TOOLKIT=MToolkit; export AWT_TOOLKIT
 
 # Some keyboard layout modifications
-setxkbmap se # Swedish layout
-setxkbmap -option altwin:swap_lalt_lwin # Swap <LAlt> and <Super>
+setxkbmap -layout se -variant swolemak # Swedish Colemak layout
 setxkbmap -option "ctrl:nocaps" # Use <CapsL> as <Ctrl>
-xmodmap -e "keysym onehalf = U03BE" # Remap § -> ξ
+xmodmap -e "keycode 49  = U03BE" # Remap § -> ξ
 
 function lockscreen() {
 	function displayoff() {
