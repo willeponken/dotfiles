@@ -98,7 +98,7 @@ export FZF_DEFAULT_OPTS='
 autoload -Uz compinit && compinit
 
 # PATH
-export PATH=$HOME/.gem/ruby/2.3.0/bin:$HOME/go/bin:$HOME/.local/usr/bin:$PATH
+export PATH=$HOME/.gem/ruby/2.3.0/bin:$HOME/go/bin:$HOME/.local/usr/bin:$HOME/.local/bin:$PATH
 
 # Fix git GPG signing
 export GPG_TTY=$(tty)

@@ -5,9 +5,11 @@ wmname LG3d
 _JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING
 AWT_TOOLKIT=MToolkit; export AWT_TOOLKIT
 
+export BROWSER=surf
+
 # Some keyboard layout modifications
-#setxkbmap -layout se -variant swolemak # Swedish Colemak layout
-setxkbmap se
+setxkbmap -layout se -variant swolemak # Swedish Colemak layout
+#setxkbmap -layout se
 setxkbmap -option "ctrl:nocaps" # Use <CapsL> as <Ctrl>
 xmodmap -e "keycode 49  = U03BE" # Remap § -> ξ
 
@@ -25,7 +27,7 @@ function lockscreen() {
 
 	while true
 	do
-		if [ $(xssstate -s) != "disabled" ];
+		if [ "$(xssstate -s)" != "disabled" ];
 		then
 			tosleep=$(($(xssstate -t) / 1000))
 			if [ $tosleep -le 0 ];
