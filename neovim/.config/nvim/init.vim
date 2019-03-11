@@ -108,7 +108,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
 \	'java': ['google_java_format'],
-\	'python': ['isort'],
+\	'python': ['isort', 'yapf'],
 \	'cpp': ['clang-format'],
 \	'c': ['clang-format'],
 \	'go': ['goimports'],
@@ -130,7 +130,7 @@ call plug#end()
 nnoremap H gT
 nnoremap L gt
 
-"" HNEI arrows. Swap 'gn'/'ge' and 'n'/'e'.
+""" HNEI arrows. Swap 'gn'/'ge' and 'n'/'e'.
 "noremap n gj|noremap e gk|noremap i l|noremap gn j|noremap ge k
 "
 "" In(s)ert. The default s/S is synonymous with cl/cc and is not very useful.

@@ -9,3 +9,4 @@ neovim/.local/share/nvim/swap
 weechat/.weechat/weechat.log
 weechat/.weechat/logs
 weechat/.weechat/script/plugins.xml.gz
+mutt/.mutt/cache
