@@ -112,6 +112,7 @@ let g:ale_fixers = {
 \	'cpp': ['clang-format'],
 \	'c': ['clang-format'],
 \	'go': ['goimports'],
+\	'rust': ['rustfmt'],
 \	'typescript': ['prettier', 'eslint'],
 \	'javascript': ['prettier', 'eslint']
 \}
