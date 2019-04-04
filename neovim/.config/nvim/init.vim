@@ -3,6 +3,7 @@
 "
 " Dependencies:
 "  * ctags
+"  * hfmt, hlint
 "
 " Good To Know:
 "  * Update plugins :PlugUpdate!
@@ -39,6 +40,14 @@ let g:NERDTreeDirArrowCollapsible = '<'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " I don't really use <C-f> (page down) anyways
 map <C-f> :FZF<CR>
+
+" Gists
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
+let g:gist_detect_filetype = 1
+let g:gist_clip_command = 'xclip -selection clipboard'
+let g:gist_post_private = 1
+let g:gist_show_privates = 1
 
 " Go tools
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -83,6 +92,17 @@ Plug 'altercation/vim-colors-solarized'
 " So I can git praise people
 Plug 'tpope/vim-fugitive'
 
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+Plug 'alx741/vim-hindent'
+
 " Highlight trailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
 let g:better_whitespace_enabled = 1
@@ -103,7 +123,8 @@ let g:ale_linters = {
 \	'cpp': ['gcc'],
 \	'c': ['gcc'],
 \	'go': ['gofmt', 'govet'],
-\	'java': ['javalsp']
+\	'java': ['javalsp'],
+\	'haskell': ['stack-ghc-mod', 'hlint']
 \}
 let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
