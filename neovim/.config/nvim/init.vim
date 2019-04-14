@@ -208,6 +208,7 @@ autocmd Filetype python setlocal textwidth=120
 autocmd Filetype javascript,json setlocal ts=4 sw=4 sts=0 expandtab
 autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype haskell setlocal ts=2 sw=2 expandtab
 
 " Solarized
 set background=dark

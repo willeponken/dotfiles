@@ -53,6 +53,11 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:git*' formats "%r/%S (%F{blue}%b%f)"
 zstyle ':vcs_info:git*' actionformats "%r/%S (%F{blue}%b%f|%F{yellow}%a%f) %m%u%c"
 
+# Upload files.
+uguu() {
+    curl -i -F file=\@"$1" "https://uguu.se/api.php?d=upload-tool"
+}
+
 # Some aliases.
 alias ls="exa"
 alias ll="exa -l"
