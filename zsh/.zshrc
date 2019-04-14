@@ -108,5 +108,10 @@ export PATH=$HOME/.gem/ruby/2.3.0/bin:$HOME/go/bin:$HOME/.local/usr/bin:$HOME/.l
 # Fix git GPG signing
 export GPG_TTY=$(tty)
 
+# Fix blank windows when using Java applications
+wmname LG3d 2> /dev/null
+_JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING
+AWT_TOOLKIT=MToolkit; export AWT_TOOLKIT
+
 # added by travis gem
 [ -f /home/willeponken/.travis/travis.sh ] && source /home/willeponken/.travis/travis.sh
