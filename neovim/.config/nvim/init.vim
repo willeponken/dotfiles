@@ -101,7 +101,7 @@ let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
 let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
 let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
-Plug 'alx741/vim-hindent'
+"Plug 'alx741/vim-hindent'
 
 " Highlight trailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
@@ -208,6 +208,7 @@ autocmd Filetype python setlocal textwidth=120
 autocmd Filetype javascript,json setlocal ts=4 sw=4 sts=0 expandtab
 autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype haskell setlocal ts=2 sw=2 expandtab
 
 " Solarized
 set background=dark
