@@ -114,4 +114,4 @@ _JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING
 AWT_TOOLKIT=MToolkit; export AWT_TOOLKIT
 
 # added by travis gem
-[ -f /home/willeponken/.travis/travis.sh ] && source /home/willeponken/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh

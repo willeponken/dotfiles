@@ -48,8 +48,10 @@ while true; do
 		       --output DP-0.1 --off \
 		       --output DP-0.2 --off
 		xrandr --output HDMI-0 --primary --pos 1080x480 --auto \
-		       --output DP-0.1 --pos 0x0 --rotate left --auto \
-		       --output DP-0.2 --pos 3000x0 --rotate right --auto
+		       --output DP-0.1 --left-of HDMI-0 --pos 0x0 \
+		       		--rotate left --auto \
+		       --output DP-0.2 --right-of HDMI-0 --pos 3000x0 \
+		       		--rotate right --auto
 	fi
 	dwm
 done
