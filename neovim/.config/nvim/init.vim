@@ -130,8 +130,6 @@ let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
 \	'java': ['google_java_format'],
 \	'python': ['isort', 'yapf'],
-\	'cpp': ['clang-format'],
-\	'c': ['clang-format'],
 \	'go': ['goimports'],
 \	'rust': ['rustfmt'],
 \	'typescript': ['prettier', 'eslint'],
@@ -204,11 +202,24 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE gui
 
 " Wordwrap
 set textwidth=80
+
+" Default indenting
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" File specific indenting
 autocmd Filetype python setlocal textwidth=120
 autocmd Filetype javascript,json setlocal ts=4 sw=4 sts=0 expandtab
 autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype haskell setlocal ts=2 sw=2 expandtab
+autocmd Filetype c,cpp setlocal cindent ts=8 sw=2 sts=2 textwidth=80 expandtab
+
+" YAML
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Solarized
 set background=dark
