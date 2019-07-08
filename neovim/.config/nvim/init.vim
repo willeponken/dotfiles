@@ -119,7 +119,7 @@ let g:ale_linters = {
 \	'jsx': ['stylelint', 'eslint'],
 \	'javascript': ['eslint'],
 \	'typescript': ['eslint'],
-\	'python': ['flake8'],
+\	'python': ['flake8', 'mypy'],
 \	'cpp': ['gcc'],
 \	'c': ['gcc'],
 \	'go': ['gofmt', 'govet'],
@@ -129,7 +129,9 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
 \	'java': ['google_java_format'],
-\	'python': ['isort', 'yapf'],
+\	'python': ['isort'],
+\	'cpp': ['clang-format'],
+\	'c': ['clang-format'],
 \	'go': ['goimports'],
 \	'rust': ['rustfmt'],
 \	'typescript': ['prettier', 'eslint'],
@@ -174,6 +176,18 @@ nnoremap L gt
 "" - j/J is the new e/E ["Jump" to EOW].
 "noremap j e|noremap J E
 
+" Mmmmm, use dat space intead :*
+let mapleader = " "
+
+" Open new stuff in tabs (aka. do not replace current buffer)
+set switchbuf+=usetab,newtab
+
+" Set grep command
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+nnoremap <Leader>g :silent lgrep<Space>
+nnoremap <silent> [f :lprevious<CR>
+nnoremap <silent> ]f :lnext<CR>
+
 " Enable 256 color mode for VIM (Neovim ignores this)
 set t_Co=256
 
@@ -210,16 +224,17 @@ set shiftwidth=4
 set expandtab
 
 " File specific indenting
-autocmd Filetype python setlocal textwidth=120
+autocmd Filetype python setlocal textwidth=120 ts=4 sw=4 sts=0 expandtab
 autocmd Filetype javascript,json setlocal ts=4 sw=4 sts=0 expandtab
 autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype haskell setlocal ts=2 sw=2 expandtab
 autocmd Filetype c,cpp setlocal cindent ts=8 sw=2 sts=2 textwidth=80 expandtab
-
-" YAML
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" Spell checking
+set spell spelllang=en_us
 
 " Solarized
 set background=dark

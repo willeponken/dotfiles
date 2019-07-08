@@ -5,14 +5,7 @@ wmname LG3d
 _JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING
 AWT_TOOLKIT=MToolkit; export AWT_TOOLKIT
 
-export BROWSER=surf
-
-# Some keyboard layout modifications
-#setxkbmap -layout se -variant swolemak # Swedish Colemak layout
-setxkbmap -layout se
-setxkbmap -option "ctrl:nocaps" # Use <CapsL> as <Ctrl>
-xmodmap -e "keycode 49  = U03BE" # Remap § -> ξ
-
+export BROWSER=firefox
 HOSTNAME=$(head -n 1 /etc/hostname); export HOSTNAME
 
 function lockscreen() {
@@ -43,15 +36,23 @@ lockscreen &
 unclutter -jitter 10 -idle 1 -root &
 
 while true; do
-	if [ "${HOSTNAME,,}" = "hubble" ]; then
+	# Some keyboard layout modifications
+	setxkbmap -layout us -variant altgr-intl # US international (w/ altgr)
+	setxkbmap -option ctrl:nocaps # Use <CapsL> as <Ctrl>
+	setxkbmap -option lv3:rwin_switch # Activate 3rd level with <WinR>
+	setxkbmap -option altwin:swap_lalt_lwin # Swap <AltL> and <SuperL>.
+	setxkbmap -option altwin:prtsc_rwin # Set <PrtSc> as <SuperR>.
+
+	# Setup multi head for Hubble
+	if [ "${HOSTNAME}" = "hubble" ]; then
 		xrandr --output HDMI-0 --off \
-		       --output DP-0.1 --off \
-		       --output DP-0.2 --off
+			--output DP-0.1 --off \
+			--output DP-0.2 --off
 		xrandr --output HDMI-0 --primary --pos 1080x480 --auto \
-		       --output DP-0.1 --left-of HDMI-0 --pos 0x0 \
-		       		--rotate left --auto \
-		       --output DP-0.2 --right-of HDMI-0 --pos 3000x0 \
-		       		--rotate right --auto
+			--output DP-0.1 --left-of HDMI-0 --pos 0x0 \
+			--rotate left --auto \
+			--output DP-0.2 --right-of HDMI-0 --pos 3000x0 \
+			--rotate right --auto
 	fi
 	dwm
 done
