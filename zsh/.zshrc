@@ -100,6 +100,7 @@ export FZF_DEFAULT_OPTS='
 [[ -n ~/.fzf.zsh ]] && source ~/.fzf.zsh 2> /dev/null || true
 
 # Enable auto completion.
+fpath+=~/.zfunc
 autoload -Uz compinit && compinit
 
 # PATH
