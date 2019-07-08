@@ -59,10 +59,10 @@ uguu() {
 }
 
 # Some aliases.
-alias ls="exa"
-alias ll="exa -l"
-alias la="exa -la"
-alias l="exa"
+alias ls="ls --color=auto"
+alias ll="ls -l"
+alias la="ls -la"
+alias l="ls"
 alias c="cd"
 alias s="sudo"
 alias java-config="java-config -n"
