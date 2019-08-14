@@ -40,7 +40,6 @@ while true; do
 	setxkbmap -layout us -variant altgr-intl # US international (w/ altgr)
 	setxkbmap -option ctrl:nocaps # Use <CapsL> as <Ctrl>
 	setxkbmap -option lv3:rwin_switch # Activate 3rd level with <WinR>
-	setxkbmap -option altwin:swap_lalt_lwin # Swap <AltL> and <SuperL>.
 	setxkbmap -option altwin:prtsc_rwin # Set <PrtSc> as <SuperR>.
 
 	# Setup multi head for Hubble

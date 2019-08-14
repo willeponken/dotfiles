@@ -126,12 +126,12 @@ let g:ale_linters = {
 \	'java': ['javalsp'],
 \	'haskell': ['stack-ghc-mod', 'hlint']
 \}
+"\	'c': ['clang-format'],
 let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
+\	'cpp': ['clang-format'],
 \	'java': ['google_java_format'],
 \	'python': ['isort'],
-\	'cpp': ['clang-format'],
-\	'c': ['clang-format'],
 \	'go': ['goimports'],
 \	'rust': ['rustfmt'],
 \	'typescript': ['prettier', 'eslint'],
