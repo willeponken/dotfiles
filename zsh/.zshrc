@@ -76,6 +76,8 @@ alias gphu="gph upstream"
 alias gd="git diff"
 alias gdc="gd --cached"
 alias gm="git merge"
+alias gpull="git pull origin HEAD"
+alias gpush="git push origin HEAD"
 
 precmd() {
 	vcs_info

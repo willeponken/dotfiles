@@ -131,7 +131,7 @@ let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
 \	'cpp': ['clang-format'],
 \	'java': ['google_java_format'],
-\	'python': ['isort'],
+\	'python': ['isort', 'black'],
 \	'go': ['goimports'],
 \	'rust': ['rustfmt'],
 \	'typescript': ['prettier', 'eslint'],
