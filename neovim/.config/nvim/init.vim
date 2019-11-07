@@ -229,6 +229,7 @@ autocmd Filetype javascript,json setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype haskell setlocal ts=2 sw=2 expandtab
+autocmd Filetype proto setlocal cindent expandtab shiftwidth=2
 autocmd Filetype c,cpp setlocal cindent ts=8 sw=2 sts=2 textwidth=80 expandtab
 "au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
