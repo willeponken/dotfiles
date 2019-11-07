@@ -30,12 +30,6 @@ call plug#begin('~/.config/nvim/plugins')
 " Sensible defaults
 Plug 'tpope/vim-sensible'
 
-" File tree
-Plug 'scrooloose/nerdtree'
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '>'
-let g:NERDTreeDirArrowCollapsible = '<'
-
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " I don't really use <C-f> (page down) anyways
@@ -58,8 +52,8 @@ let g:go_fmt_command = "goimports"
 Plug 'leafgarland/typescript-vim', {'for': ['typescript']}
 
 " Tagbar
-Plug 'majutsushi/tagbar'
-map <C-t> :TagbarToggle<CR>
+"Plug 'majutsushi/tagbar'
+"map <C-t> :TagbarToggle<CR>
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -103,6 +97,9 @@ let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 "Plug 'alx741/vim-hindent'
 
+" Elm
+Plug 'elmcast/elm-vim'
+
 " Highlight trailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
 let g:better_whitespace_enabled = 1
@@ -131,11 +128,11 @@ let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
 \	'cpp': ['clang-format'],
 \	'java': ['google_java_format'],
-\	'python': ['isort'],
+\	'python': ['isort', 'black'],
 \	'go': ['goimports'],
 \	'rust': ['rustfmt'],
-\	'typescript': ['prettier', 'eslint'],
-\	'javascript': ['prettier', 'eslint']
+\	'typescript': ['eslint'],
+\	'javascript': ['eslint']
 \}
 let g:ale_fix_on_save = 1
 " let g:ale_java_javalsp_jar = '~/local/usr/bin/javalsp.jar'
@@ -188,6 +185,9 @@ nnoremap <Leader>g :silent lgrep<Space>
 nnoremap <silent> [f :lprevious<CR>
 nnoremap <silent> ]f :lnext<CR>
 
+" Format JSON with :FormatJSON
+com! FormatJSON %!python -m json.tool
+
 " Enable 256 color mode for VIM (Neovim ignores this)
 set t_Co=256
 
@@ -225,12 +225,12 @@ set expandtab
 
 " File specific indenting
 autocmd Filetype python setlocal textwidth=120 ts=4 sw=4 sts=0 expandtab
-autocmd Filetype javascript,json setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype javascript,json setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype haskell setlocal ts=2 sw=2 expandtab
 autocmd Filetype c,cpp setlocal cindent ts=8 sw=2 sts=2 textwidth=80 expandtab
-au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+"au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Spell checking
