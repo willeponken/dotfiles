@@ -109,7 +109,7 @@ autoload -Uz compinit && compinit
 export PATH=$HOME/.gem/ruby/2.3.0/bin:$HOME/go/bin:$HOME/.local/usr/bin:$HOME/.local/bin:$PATH
 
 # Yarn PATH
-export PATH="$(yarn global bin):$PATH"
+command -v yarn && export PATH="$(yarn global bin):$PATH"
 
 # Fix git GPG signing
 export GPG_TTY=$(tty)
