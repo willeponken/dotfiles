@@ -23,7 +23,7 @@
 "
 "  <C-a> Accept snippet suggestion
 "
-" Copyright (C) 2018 High On Coffee Ltd
+" Copyright (C) 2018-2020 High On Coffee Ltd
 
 call plug#begin('~/.config/nvim/plugins')
 
@@ -59,6 +59,12 @@ Plug 'leafgarland/typescript-vim', {'for': ['typescript']}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets' " Some default snippets
 let g:UltiSnipsExpandTrigger="<C-a>" " <C-a> to accept snippet
+
+" Vimtex
+Plug 'lervag/vimtex'
+let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_latexmk_continuous = 1
+let g:vimtex_view_method = 'zathura'
 
 " Airline/powerline
 Plug 'vim-airline/vim-airline'
@@ -110,29 +116,30 @@ let g:strip_whitelines_at_eof = 1
 Plug 'w0rp/ale'
 let g:ale_completion_enabled = 1
 let g:ale_linter_aliases = {
-\	'jsx': ['css', 'javascript'],
+\   'jsx': ['css', 'javascript'],
 \}
 let g:ale_linters = {
-\	'jsx': ['stylelint', 'eslint'],
-\	'javascript': ['eslint'],
-\	'typescript': ['eslint'],
-\	'python': ['flake8', 'mypy'],
-\	'cpp': ['gcc'],
-\	'c': ['gcc'],
-\	'go': ['gofmt', 'govet'],
-\	'java': ['javalsp'],
-\	'haskell': ['stack-ghc-mod', 'hlint']
+\   'jsx': ['stylelint', 'eslint'],
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
+\   'python': ['flake8', 'mypy'],
+\   'cpp': ['gcc'],
+\   'c': ['gcc'],
+\   'go': ['gofmt', 'govet'],
+\   'java': ['javalsp'],
+\   'haskell': ['stack-ghc-mod', 'hlint']
 \}
 "\	'c': ['clang-format'],
 let g:ale_fixers = {
-\	'*': ['remove_trailing_lines', 'trim_whitespace'],
-\	'cpp': ['clang-format'],
-\	'java': ['google_java_format'],
-\	'python': ['isort', 'black'],
-\	'go': ['goimports'],
-\	'rust': ['rustfmt'],
-\	'typescript': ['eslint'],
-\	'javascript': ['eslint']
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'cpp': ['clang-format'],
+\   'java': ['google_java_format'],
+\   'python': ['isort', 'black'],
+\   'go': ['goimports'],
+\   'rust': ['rustfmt'],
+\   'yaml': ['prettier'],
+\   'typescript': ['eslint'],
+\   'javascript': ['eslint']
 \}
 let g:ale_fix_on_save = 1
 " let g:ale_java_javalsp_jar = '~/local/usr/bin/javalsp.jar'
@@ -184,6 +191,10 @@ set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 nnoremap <Leader>g :silent lgrep<Space>
 nnoremap <silent> [f :lprevious<CR>
 nnoremap <silent> ]f :lnext<CR>
+
+" Save some key strokes with Vimtex
+nnoremap <Leader>lt :VimtexTocToggle<CR>
+nnoremap <Leader>lc :w \| :VimtexCompile<CR><CR>
 
 " Format JSON with :FormatJSON
 com! FormatJSON %!python -m json.tool
