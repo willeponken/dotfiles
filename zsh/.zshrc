@@ -76,6 +76,8 @@ alias gphu="gph upstream"
 alias gd="git diff"
 alias gdc="gd --cached"
 alias gm="git merge"
+alias gpull="git pull origin HEAD"
+alias gpush="git push origin HEAD"
 
 precmd() {
 	vcs_info
@@ -100,10 +102,14 @@ export FZF_DEFAULT_OPTS='
 [[ -n ~/.fzf.zsh ]] && source ~/.fzf.zsh 2> /dev/null || true
 
 # Enable auto completion.
+fpath+=~/.zfunc
 autoload -Uz compinit && compinit
 
 # PATH
 export PATH=$HOME/.gem/ruby/2.3.0/bin:$HOME/go/bin:$HOME/.local/usr/bin:$HOME/.local/bin:$PATH
+
+# Yarn PATH
+command -v yarn && export PATH="$(yarn global bin):$PATH"
 
 # Fix git GPG signing
 export GPG_TTY=$(tty)
