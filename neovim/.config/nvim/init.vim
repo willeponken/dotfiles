@@ -119,7 +119,7 @@ let g:ale_linters = {
 \	'jsx': ['stylelint', 'eslint'],
 \	'javascript': ['eslint'],
 \	'typescript': ['eslint'],
-\	'python': ['flake8', 'mypy'],
+\	'python': ['flake8', 'pylint', 'mypy'],
 \	'cpp': ['gcc'],
 \	'c': ['gcc'],
 \	'go': ['gofmt', 'govet'],
