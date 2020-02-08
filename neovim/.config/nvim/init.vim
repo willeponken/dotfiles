@@ -103,6 +103,9 @@ let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 "Plug 'alx741/vim-hindent'
 
+" Nim
+Plug 'zah/nim.vim'
+
 " Elm
 Plug 'elmcast/elm-vim'
 
@@ -244,6 +247,7 @@ autocmd Filetype proto setlocal cindent expandtab shiftwidth=2
 autocmd Filetype c,cpp setlocal cindent ts=8 sw=2 sts=2 textwidth=80 expandtab
 "au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype tex setlocal textwidth=140 expandtab
 
 " Spell checking
 set spell spelllang=en_us
