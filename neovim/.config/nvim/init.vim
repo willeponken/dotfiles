@@ -14,14 +14,32 @@
 "
 "  <C-t> Tagbar
 "
+"  <C-l> Line completion (INSERT mode)
+"  <C-d> Dictionary completion (INSERT mode)
+"
 "  <C-f> Fuzzy finder
 "  	<C-t> Tab split
 "  	<C-x> Split
 "  	<C-v> Vertical split
 "
+"  <C-k> Jump to previous error.
+"  <C-j> Jump to next error.
+"
 "  <C-Space> Toggle auto completion
 "
 "  <C-a> Accept snippet suggestion
+"
+"  <Space>g Search current directory recursively.
+"  [f Previous search result.
+"  ]f Next search result.
+"
+"  <Space>lt Toggle table of content in TeX file.
+"  <Space>lc Compile TeX file (subsequent saves are automatically compiled).
+"
+"  <Space><Tab> Auto completed buffer switching with <Tab>.
+"
+"  <H> Switch to the next buffer on the left side.
+"  <L> Switch to the next buffer on the right side.
 "
 " Copyright (C) 2018-2020 High On Coffee Ltd
 
@@ -52,8 +70,8 @@ let g:go_fmt_command = "goimports"
 Plug 'leafgarland/typescript-vim', {'for': ['typescript']}
 
 " Tagbar
-"Plug 'majutsushi/tagbar'
-"map <C-t> :TagbarToggle<CR>
+Plug 'majutsushi/tagbar'
+map <C-t> :TagbarToggle<CR>
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -159,30 +177,6 @@ call plug#end()
 nnoremap H gT
 nnoremap L gt
 
-""" HNEI arrows. Swap 'gn'/'ge' and 'n'/'e'.
-"noremap n gj|noremap e gk|noremap i l|noremap gn j|noremap ge k
-"
-"" In(s)ert. The default s/S is synonymous with cl/cc and is not very useful.
-"" - s/S is the new i/I ["inSert"].
-"noremap s i|noremap S I
-"
-"" Repeat search.
-"" - ö/Ö is the new n/N.
-"noremap ö n|noremap Ö N
-"
-"" BOL/EOL/Join.
-"" - l/L skip to the beginning and end of lines. Much more intuitive than ^/$.
-"" - Ctrl-l joins lines, making l/L the veritable "Line" key.
-"noremap l ^|noremap L $|noremap <C-l> J
-"
-"" _r_ = inneR text objects.
-"" - r replaces i as the "inneR" modifier [e.g. "diw" becomes "drw"].
-"onoremap r i
-"
-"" EOW.
-"" - j/J is the new e/E ["Jump" to EOW].
-"noremap j e|noremap J E
-
 " Mmmmm, use dat space intead :*
 let mapleader = " "
 
@@ -224,12 +218,36 @@ set nrformats+=alpha
 set ignorecase
 set smartcase
 
+" Tab completed options.
+set wildmenu
+set wildmode=full
+" Tab completed buffer switching.
+set wildcharm=<Tab>
+nnoremap <Leader><Tab> :buffer<Space><Tab>
+
 " Line numbers
 set number relativenumber
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
+" Global substitute (so I do not have to add the annoying /g on search &
+" replace).
+set gdefault
+
 " Wordwrap
 set textwidth=80
+set wrap linebreak nolist
+" Remap j -> gj, k -> gk so that it's easier to navigate in word wrapped lines.
+nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
+
+" Auto resize splits on window change.
+autocmd VimResized * wincmd =
+
+" Improve scroll performance.
+augroup syntaxSyncMinLines
+    autocmd!
+    autocmd Syntax * syntax sync minlines=2000
+augroup END
 
 " Default indenting
 filetype plugin indent on
@@ -253,6 +271,13 @@ autocmd Filetype tex setlocal textwidth=140 expandtab
 
 " Spell checking
 set spell spelllang=en_us
+
+" Line completion.
+inoremap <C-l> <C-x><C-l>
+
+" Dictionary completion.
+set dictionary=/usr/share/dict/words
+inoremap <C-d> <C-x><C-k>
 
 " Solarized
 set background=dark
