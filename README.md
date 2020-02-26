@@ -32,7 +32,7 @@ nvim +PlugInstall +qall
 
 *For Vim:*
 ```zsh
-nvim +PlugInstall +qall
+vim +PlugInstall +qall
 ```
 
 ### For me
