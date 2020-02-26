@@ -119,5 +119,8 @@ wmname LG3d 2> /dev/null
 _JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING
 AWT_TOOLKIT=MToolkit; export AWT_TOOLKIT
 
+# Go modules
+export GO111MODULE=on
+
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh

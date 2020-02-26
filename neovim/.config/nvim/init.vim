@@ -134,34 +134,41 @@ let g:strip_whitespace_on_save = 1
 let g:strip_whitelines_at_eof = 1
 
 " Autocompletion/linting
-Plug 'w0rp/ale'
+Plug 'w0rp/ale', {
+            \ 'do': '
+            \   pip install --user \"python-language-server[all]\" &&
+            \   pip install --user isort black mypy &&
+            \   yarn global add eslint prettier &&
+            \   go get golang.org/x/tools/gopls@latest
+            \'
+            \}
 let g:ale_completion_enabled = 1
 let g:ale_linter_aliases = {
-\   'jsx': ['css', 'javascript'],
-\}
+            \   'jsx': ['css', 'javascript'],
+            \}
 let g:ale_linters = {
-\	'jsx': ['stylelint', 'eslint'],
-\	'javascript': ['eslint'],
-\	'typescript': ['eslint'],
-\	'python': ['pyls', 'flake8', 'pylint', 'mypy'],
-\	'cpp': ['gcc'],
-\	'c': ['gcc'],
-\	'go': ['gopls', 'gofmt', 'govet'],
-\	'java': ['javalsp'],
-\	'haskell': ['stack-ghc-mod', 'hlint']
-\}
+            \	'jsx': ['stylelint', 'eslint'],
+            \	'javascript': ['eslint'],
+            \	'typescript': ['eslint'],
+            \	'python': ['pyls', 'mypy'],
+            \	'cpp': ['gcc'],
+            \	'c': ['gcc'],
+            \	'go': ['gopls', 'gofmt', 'govet'],
+            \	'java': ['javalsp'],
+            \	'haskell': ['stack-ghc-mod', 'hlint']
+            \}
 "\	'c': ['clang-format'],
 let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'cpp': ['clang-format'],
-\   'java': ['google_java_format'],
-\   'python': ['isort', 'black'],
-\   'go': ['goimports'],
-\   'rust': ['rustfmt'],
-\   'yaml': ['prettier'],
-\   'typescript': ['eslint'],
-\   'javascript': ['eslint']
-\}
+            \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+            \   'cpp': ['clang-format'],
+            \   'java': ['google_java_format'],
+            \   'python': ['isort', 'black'],
+            \   'go': ['goimports'],
+            \   'rust': ['rustfmt'],
+            \   'yaml': ['prettier'],
+            \   'typescript': ['eslint'],
+            \   'javascript': ['eslint']
+            \}
 let g:ale_fix_on_save = 1
 " let g:ale_java_javalsp_jar = '~/local/usr/bin/javalsp.jar'
 let g:airline#extensions#ale#enabled = 1
