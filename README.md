@@ -38,7 +38,7 @@ vim +PlugInstall +qall
 ### For me
 
 ```zsh
-cd $HOME
+cd ~
 git clone git@github.com:wstrm/dotfiles.git .dotfiles
 cd .dotfiles
 stow ^(LICENSE|README.md)
