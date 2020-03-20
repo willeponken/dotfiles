@@ -46,7 +46,7 @@ while true; do
     # Setup multi head for Hubble
     if [ "${HOSTNAME}" = "hubble" ]; then
         nvidia-settings --load-config-only
-        nvidia-settings --assign CurrentMetaMode="HDMI-0: nvidia-auto-select +1080+0, DP-0.1: nvidia-auto-select +0+0 {rotation=left}, DP-0.2: nvidia-auto-select +3000+0 {rotation=right}"
+        nvidia-settings --assign CurrentMetaMode="HDMI-0: nvidia-auto-select +1080+420, DP-0.1: nvidia-auto-select +0+0 {rotation=left}, DP-0.2: nvidia-auto-select +3000+0 {rotation=right}"
     fi
 
     dwm
