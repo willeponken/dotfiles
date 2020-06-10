@@ -50,6 +50,7 @@ while true; do
 
         # This is the price you have to pay for buying cheap monitors...
         xset -dpms
+        xset s off
     fi
 
     dwm
