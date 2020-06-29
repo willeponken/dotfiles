@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -v
+set -e
+
+for f in "$@"
+do
+    tmpout="$(mktemp)"
+
+    gs -sDEVICE=pdfwrite \
+        -dCompatibilityLevel=1.4 \
+        -dDownsampleColorImages=true \
+        -dColorImageResolution=150 \
+        -dNOPAUSE \
+        -dBATCH \
+        -sOutputFile="${tmpout}.pdf" \
+        "$f"
+
+    mv "${tmpout}.pdf" "$f"
+done

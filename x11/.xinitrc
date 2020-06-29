@@ -45,14 +45,13 @@ while true; do
 
     # Setup multi head for Hubble
     if [ "${HOSTNAME}" = "hubble" ]; then
-        xrandr --output HDMI-0 --off \
-            --output DP-0.1 --off \
-            --output DP-0.2 --off
-        xrandr --output HDMI-0 --primary --pos 1080x480 --auto \
-            --output DP-0.1 --left-of HDMI-0 --pos 0x0 \
-            --rotate left --auto \
-            --output DP-0.2 --right-of HDMI-0 --pos 3000x0 \
-            --rotate right --auto
+        nvidia-settings --load-config-only
+        nvidia-settings --assign CurrentMetaMode="HDMI-0: nvidia-auto-select +1080+420, DP-0.1: nvidia-auto-select +0+0 {rotation=left}, DP-0.2: nvidia-auto-select +3000+0 {rotation=right}"
+
+        # This is the price you have to pay for buying cheap monitors...
+        xset -dpms
+        xset s off
     fi
+
     dwm
 done

@@ -142,22 +142,21 @@ Plug 'w0rp/ale', {
             \   go get golang.org/x/tools/gopls@latest
             \'
             \}
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 let g:ale_linter_aliases = {
             \   'jsx': ['css', 'javascript'],
             \}
 let g:ale_linters = {
             \	'jsx': ['stylelint', 'eslint'],
             \	'javascript': ['eslint'],
-            \	'typescript': ['eslint'],
+            \	'typescript': ['tsserver'],
             \	'python': ['pyls', 'mypy'],
-            \	'cpp': ['gcc'],
-            \	'c': ['gcc'],
+            \	'cpp': ['clangtidy'],
+            \	'c': ['clangtidy'],
             \	'go': ['gopls', 'gofmt', 'govet'],
             \	'java': ['javalsp'],
             \	'haskell': ['stack-ghc-mod', 'hlint']
             \}
-"\	'c': ['clang-format'],
 let g:ale_fixers = {
             \   '*': ['remove_trailing_lines', 'trim_whitespace'],
             \   'cpp': ['clang-format'],
@@ -166,12 +165,16 @@ let g:ale_fixers = {
             \   'go': ['goimports'],
             \   'rust': ['rustfmt'],
             \   'yaml': ['prettier'],
-            \   'typescript': ['eslint'],
+            \	'c': ['clang-format'],
+            \   'typescript': ['prettier'],
             \   'javascript': ['eslint']
             \}
 let g:ale_fix_on_save = 1
 " let g:ale_java_javalsp_jar = '~/local/usr/bin/javalsp.jar'
 let g:airline#extensions#ale#enabled = 1
+
+" Toggle fixer.
+command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
 
 " Jump to previous error
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
