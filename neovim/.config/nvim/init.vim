@@ -127,6 +127,9 @@ Plug 'zah/nim.vim'
 " Elm
 Plug 'elmcast/elm-vim'
 
+" Terraform
+Plug 'hashivim/vim-terraform'
+
 " Highlight trailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
 let g:better_whitespace_enabled = 1
@@ -167,7 +170,8 @@ let g:ale_fixers = {
             \   'yaml': ['prettier'],
             \	'c': ['clang-format'],
             \   'typescript': ['prettier'],
-            \   'javascript': ['eslint']
+            \   'javascript': ['eslint'],
+            \   'terraform': ['terraform']
             \}
 let g:ale_fix_on_save = 1
 " let g:ale_java_javalsp_jar = '~/local/usr/bin/javalsp.jar'
