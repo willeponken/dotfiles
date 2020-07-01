@@ -170,9 +170,9 @@ let g:ale_fixers = {
             \   'rust': ['rustfmt'],
             \   'yaml': ['prettier'],
             \	'c': ['clang-format'],
-            \   'terraform': ['terraform'],
             \   'typescript': ['prettier'],
-            \   'javascript': ['eslint']
+            \   'javascript': ['eslint'],
+            \   'terraform': ['terraform']
             \}
 let g:ale_fix_on_save = 1
 " let g:ale_java_javalsp_jar = '~/local/usr/bin/javalsp.jar'
@@ -278,7 +278,6 @@ autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype haskell setlocal ts=2 sw=2 expandtab
 autocmd Filetype proto setlocal cindent expandtab shiftwidth=2
 autocmd Filetype c,cpp setlocal cindent ts=8 sw=2 sts=2 textwidth=80 expandtab
-"au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " Interpret Jenkinsfile* and *.groovy.* as groovy
 au BufNewFile,BufRead {Jenkinsfile,*.groovy}* setf groovy
