@@ -127,6 +127,9 @@ Plug 'zah/nim.vim'
 " Elm
 Plug 'elmcast/elm-vim'
 
+" Terraform / HCL
+Plug 'hashivim/vim-terraform'
+
 " Highlight trailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
 let g:better_whitespace_enabled = 1
@@ -155,6 +158,7 @@ let g:ale_linters = {
             \	'c': ['clangtidy'],
             \	'go': ['gopls', 'gofmt', 'govet'],
             \	'java': ['javalsp'],
+            \   'terraform': ['terraform'],
             \	'haskell': ['stack-ghc-mod', 'hlint']
             \}
 let g:ale_fixers = {
@@ -166,6 +170,7 @@ let g:ale_fixers = {
             \   'rust': ['rustfmt'],
             \   'yaml': ['prettier'],
             \	'c': ['clang-format'],
+            \   'terraform': ['terraform'],
             \   'typescript': ['prettier'],
             \   'javascript': ['eslint']
             \}
@@ -277,6 +282,7 @@ autocmd Filetype c,cpp setlocal cindent ts=8 sw=2 sts=2 textwidth=80 expandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " Interpret Jenkinsfile* and *.groovy.* as groovy
 au BufNewFile,BufRead {Jenkinsfile,*.groovy}* setf groovy
+autocmd Filetype groovy setlocal textwidth=120
 autocmd Filetype tex setlocal textwidth=140 expandtab
 
 " Spell checking

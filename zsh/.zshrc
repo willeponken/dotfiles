@@ -127,3 +127,5 @@ export GO111MODULE=on
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/vault vault
+
+complete -o nospace -C /usr/bin/terraform terraform
