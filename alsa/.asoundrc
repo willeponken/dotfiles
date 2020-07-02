@@ -1,3 +1,14 @@
+defaults.pcm.rate_converter "speexrate_best"
+
+ctl.equal {
+    type equal;
+}
+
+pcm.equal {
+    type equal;
+    slave.pcm "plug:dmix";
+}
+
 pcm.usb
 {
     type hw
@@ -10,7 +21,7 @@ pcm.!default
     playback.pcm
     {
         type plug
-        slave.pcm "dmix"
+        slave.pcm "equal"
     }
     capture.pcm
     {
