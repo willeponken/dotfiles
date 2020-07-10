@@ -12,3 +12,5 @@ weechat/.weechat/logs
 weechat/.weechat/script/plugins.xml.gz
 mutt/.mutt/cache
 mutt/.mutt/**/cache/
+stack/.stack/
+!stack/.stack/config.yaml

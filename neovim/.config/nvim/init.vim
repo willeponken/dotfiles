@@ -108,6 +108,7 @@ let g:airline_theme='solarized'
 Plug 'altercation/vim-colors-solarized'
 
 " So I can git praise people
+Plug 'tpope/vim-dispatch' " Required for asynchronous git push.
 Plug 'tpope/vim-fugitive'
 
 " Haskell
