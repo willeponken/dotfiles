@@ -111,6 +111,9 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-dispatch' " Required for asynchronous git push.
 Plug 'tpope/vim-fugitive'
 
+" VimWiki
+Plug 'vimwiki/vimwiki'
+
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
@@ -178,6 +181,9 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 " let g:ale_java_javalsp_jar = '~/local/usr/bin/javalsp.jar'
 let g:airline#extensions#ale#enabled = 1
+
+" VimWiki
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
 " Toggle fixer.
 command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
