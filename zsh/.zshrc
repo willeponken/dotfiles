@@ -111,6 +111,9 @@ export PATH=$HOME/.gem/ruby/2.3.0/bin:$HOME/go/bin:$HOME/.local/usr/bin:$HOME/.l
 # Yarn PATH
 command -v yarn > /dev/null && export PATH="$(yarn global bin):$PATH"
 
+# Default editor
+export EDITOR=nvim
+
 # Fix git GPG signing
 export GPG_TTY=$(tty)
 
