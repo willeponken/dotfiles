@@ -145,6 +145,9 @@ Plug 'elmcast/elm-vim'
 " Terraform / HCL
 Plug 'hashivim/vim-terraform'
 
+" Nix
+Plug 'LnL7/vim-nix'
+
 " Highlight trailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
 let g:better_whitespace_enabled = 1
@@ -174,7 +177,8 @@ let g:ale_linters = {
             \	'go': ['gopls', 'gofmt', 'govet'],
             \	'java': ['javalsp'],
             \   'terraform': ['terraform'],
-            \	'haskell': ['stack-ghc-mod', 'hlint']
+            \	'haskell': ['stack-ghc-mod', 'hlint'],
+            \   'nix': ['nix']
             \}
 let g:ale_fixers = {
             \   '*': ['remove_trailing_lines', 'trim_whitespace'],
